@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'PingFangSC-Medium'; /* 定义字体名称，可以自定义 */
+    src: url('../fonts/PingFangSC-Medium.otf') format('truetype'); /* 定义字体文件的路径和格式 */
+    /*font-weight: normal; /* 可选：定义字体粗细 */
+    /*font-style: normal; /* 可选：定义字体样式，如 italic */
+  }
+
+body {
+    background: linear-gradient(229deg,#ACE0F9 -20%,#F2C2AD 120%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+    z-index: -1;
+}
+
+#notification {
+    color: white;
+    font-family: 'PingFangSC-Medium';
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(234, 234, 234, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgb(253, 253, 253);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 0 10px 5px rgb(255, 255, 54);
+}
+
+#notification.show {
+    color: white;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#notification p {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.site-title-wrapper {
+    position: relative;
+    top: 20%;
+    /*transform: translate(-50%, -50%);  删除此行 */
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  删除此行 */
+    width: auto; /* 设置宽度为自动 */
+    white-space: nowrap; /* 防止文字换行 */
+    overflow: hidden; /* 隐藏超出部分 */
+}
+
+.site-title {
+    font-family: 'PingFangSC-Medium';
+    color: white;
+    font-size: 50px;
+    opacity: 0;
+    left: 8%;
+    /* transform: scale(0.6);  删除此行 */
+    /*transform: translateX(-100%);  删除此行 */
+    transition: opacity 1s ease, transform 1s ease;
+    position: relative; /*设置相对定位*/
+    /*left: 25%; /* 相对于 .site-title-wrapper 左侧偏移 25% */
+    transform: translateX(-100%); /* 初始状态：将文字移出到左侧屏幕外 */
+}
+
+.site-title.show {
+    opacity: 1;
+    /* transform: scale(1); 删除此行 */
+    transform: translateX(0); /* 显示状态：将文字移回原位，即左侧与 .site-title-wrapper 左侧对齐 */
+}
+
+.site-title span {
+    font-weight: bold;
+}
+
+.external-site-button {
+    /* 整体样式 */
+    display: flex;
+    align-items: center;
+    padding: 5px 10px; /* 调整整体大小 */
+    border: none; /* 去除默认边框 */
+    background-color: rgba(219, 219, 219, 0.8); /* 透明背景 */
+    border-radius: 15px; /* 圆角大小，可调整 */
+    font-family: sans-serif; /* 字体 */
+    font-size: 14px; /* 字体大小，可调整 */
+    flex: 0 0 33.333%; /* 设置 flex-basis */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 可选：添加轻微阴影 */
+    transition: background-color 0.3s ease; /* 可选：添加悬停效果过渡 */
+    box-sizing: border-box; /* 确保宽度计算包含 padding 和 border */
+    line-height: 2;
+    margin-bottom: 15px;
+}
+  
+.external-site-button:hover {
+    background-color: rgba(255, 226, 60, 0.8); /* 可选：悬停时浅色背景 */
+    box-shadow: 0 0 10px 5px #ff0;
+}
+  
+.icon-container {
+    /* 图标容器 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px; /* 图标容器宽度，可调整 */
+    height: 24px; /* 图标容器高度，可调整 */
+}
+  
+.site-icon {
+    /* 图标样式 */
+    max-width: 100%;
+    max-height: 100%;
+}
+  
+.separator {
+    /* 分割线 */
+    width: 1px;
+    height: 16px; /* 分割线高度，可调整 */
+    background-color: #ccc; /* 分割线颜色 */
+    margin: 0 8px; /* 分割线左右边距 */
+}
+  
+.site-name {
+    /* 网站名称 */
+    font-family: 'PingFangSC-Medium';
+    color: white; /* 文字颜色 */
+    white-space: nowrap; /* 防止文字换行 */
+}
+
+.sitebox {
+    position: fixed;
+    top: 30%;
+    left: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    opacity: 20; /* 初始状态设置为透明 */
+    animation: fadeInSlideIn 2s ease forwards; /* 添加动画 */
+}
+
+@keyframes fadeInSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(800px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* 结束状态：回到原位 */
+    }
+}
+
+.serverbox {
+    position: fixed;
+    top: 40%;
+    left: 35%;
+}
+
+.sitebox a {
+    text-decoration: none;
+}
+
+.sitebox h2 {
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'PingFangSC-Medium';
+}
+.serverbox h2 {
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'PingFangSC-Medium';
+}
+
+.sitebox hr {
+    width: 100%; /* 设置宽度为父元素宽度的 50% */
+    height: 3px; /* 设置粗细为 5 像素 */
+    background-color: rgb(255, 255, 255); /* 设置背景颜色，以便更清楚地看到粗细 */
+    border: none; /* 去除默认边框 */
+}
+.serverbox hr {
+    width: 85%; /* 设置宽度为父元素宽度的 50% */
+    height: 3px; /* 设置粗细为 5 像素 */
+    background-color: rgb(255, 255, 255); /* 设置背景颜色，以便更清楚地看到粗细 */
+    border: none; /* 去除默认边框 */
+}
+.site-title.show {
+    opacity: 1;
+    /* transform: scale(1); 删除此行，因为不再需要缩放效果 */
+    /*transform: translateX(0); /* 显示状态：将文字移回原位 */
+}
+
+@media (max-width: 768px) {
+    .site-title-wrapper {
+        display: none;
+        position: relative;
+        top: 15%;
+    }
+
+    .site-title {
+        width: auto;
+        left: 8%;
+        font-size: 18px;
+    }
+
+    .buttons {
+        bottom: calc(50% - 120px);
+        width: 100%;
+    }
+}
+@media (max-width: 600px) { /* 当容器宽度小于600px时 */
+    .external-site-button {
+      flex-basis: 50%; /* 一行显示两个 */
+    }
+  }
+  
+@media (max-width: 400x) { /* 当容器宽度小于400px时 */
+    .external-site-button {
+      flex-basis: 100%; /* 一行显示一个 */
+    }
+}
+@media (max-width: 300px) { /* 当容器宽度小于400px时 */
+    .external-site-button {
+      flex-basis: 100%; /* 一行显示一个 */
+    }
+}

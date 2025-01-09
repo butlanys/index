@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="欢迎来到 butlanys 的小站！探索我的项目、博客文章和更多内容。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>butlanys的小站</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="notification">
+        <span id="close-btn">×</span>
+        <p>欢迎来到butlanys的小站</p>
+    </div>
+    <div class="site-title-wrapper">
+        <div class="site-title">你好，欢迎来到 <span>butlanys</span> 的小站<br></div>
+    </div>
+    <div class="sitebox">
+        <h2>My Site</h2>
+        <hr>
+        <a href="https://github.com/butlanys" target="_blank" style="margin-right: 10px;">
+        <button class="external-site-button">
+            <div class="icon-container">
+                <i class="fa fa-link"></i>
+            </div>
+            <div class="separator"></div>
+            <span class="site-name">github</span>
+        </button>
+        </a>
+        <a href="https://blog.butlanys.de/" target="_blank" style="margin-right: 10px;">
+            <button class="external-site-button">
+                <div class="icon-container">
+                    <i class="fa fa-book"></i>
+                </div>
+                <div class="separator"></div>
+                <span class="site-name">Blog</span>
+        </button>
+        </a>
+        <a href="https://alist.hqycloud.top/" target="_blank">
+            <button class="external-site-button">
+                <div class="icon-container">
+                    <i class="fa fa-cloud"></i>
+                </div>
+                <div class="separator"></div>
+                <span class="site-name">Alist</span>
+        </button>
+        </a>
+    </div>
+    <script src="js/script.min.js"></script>
+</body>
+</html>
